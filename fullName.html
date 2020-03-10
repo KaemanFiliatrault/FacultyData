@@ -1,0 +1,21 @@
+<html>
+    <header> Faculty lab</header>
+    <body>
+        <script type="text/javascript" src="faculty.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script>
+            d3.select("body")
+                .selectAll("H2")
+                .data(employees)
+                .enter()
+                .append("H2")
+                .text(function(employee)
+                {
+                    var firstName = employee.firstName;
+                    var lastName = employee.lastName;
+                    
+                    return firstName+' '+lastName;    
+                })
+        </script>
+    </body>
+</html>

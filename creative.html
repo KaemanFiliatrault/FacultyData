@@ -1,0 +1,46 @@
+<html>
+    <header> Faculty lab that is so much fun... Hint: try clicking</header>
+    <body>
+        <script type="text/javascript" src="faculty.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script>
+            d3.select("body")
+                .selectAll("H1")
+                .data(employees)
+                .enter()
+                .append("H1")
+                .text(function(employee)
+                {
+                   var firstName = employee.firstName;
+                    var lastName = employee.lastName;
+                    
+                    return firstName+' '+lastName;  
+                })
+                .on("click", function(){
+                    d3.select(this)
+                        .text("")
+                        .append("img")
+                        .attr("src","https://www.centre.edu/wp-content/uploads/connections-images/michael-bradshaw/09022014_Michael_Bradshaw_Headshot__03457_original-a2889d71205ce426e40e6ee7ef1592ca.jpg")
+                        .style("float", "left")
+                        .style("clear","both")
+                    d3.select(this)
+                        .append("p")
+                        .text(" Dr. B")
+                        .style("float", "left")
+                    
+                })
+                .style("float","left")
+                .style("clear", "both")
+                .append("img")
+                .attr("src", function(employee)
+                {
+                    return employee.photo;    
+                })
+                .style("float","left")
+                .style("clear", "both")
+                
+                
+            
+        </script>
+    </body>
+</html>
